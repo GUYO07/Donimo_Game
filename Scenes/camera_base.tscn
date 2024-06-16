@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://43sif30rys70"]
+
+[ext_resource type="Script" path="res://Scenes/RTS_Camera.gd" id="1_ay8qj"]
+
+[sub_resource type="GDScript" id="GDScript_mhdbb"]
+
+[node name="camera_base" type="Node3D"]
+script = ExtResource("1_ay8qj")
+
+[node name="camera_socket" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="camera_socket"]
+script = SubResource("GDScript_mhdbb")

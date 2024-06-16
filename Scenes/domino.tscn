@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyljoo7v5rdpw"]
+
+[ext_resource type="Script" path="res://Scenes/domino.gd" id="1_lfadl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s53eu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ih7p6"]
+size = Vector3(4, 8, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1yh7t"]
+size = Vector3(4, 8, 1)
+
+[node name="domino" type="RigidBody3D"]
+input_capture_on_drag = true
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_s53eu")
+gravity_scale = 6.0
+can_sleep = false
+script = ExtResource("1_lfadl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ih7p6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1yh7t")

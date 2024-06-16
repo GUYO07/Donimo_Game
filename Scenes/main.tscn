@@ -40,5 +40,5 @@ gravity_scale = 10.0
 [node name="camera_base" parent="." instance=ExtResource("3_ph3s8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 
-[node name="domino" parent="." instance=ExtResource("4_u51fq")]
+[node name="domino" parent="." groups=["dominos"] instance=ExtResource("4_u51fq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.33374, -6.4786)

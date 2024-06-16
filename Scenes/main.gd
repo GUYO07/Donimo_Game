@@ -44,11 +44,11 @@ func _input(event):
 
 			var result = ray_calculate(event.position)
 			print(result.collider.name)
-			
+			print(result.collider.is_in_group("dominos"))
 			if result and (result.position - result.collider.global_transform.origin).length() < click_radius :
 				
 				drag_offset = result.collider.global_transform.origin - result.position
-				if result.collider.name.find("domino") != -1:
+				if result.collider.name.find("domino") != -1 or result.collider.is_in_group("dominos"):
 					dragging = true
 					holding = true
 				if result.collider.name.find("box") != -1:
@@ -80,7 +80,7 @@ func _input(event):
 			new_position.y = 10
 			last_position = new_position
 			if(select_domino == null):
-				if result.collider.name.find("domino") != -1:
+				if result.collider.name.find("domino") != -1 or result.collider.is_in_group("dominos"):
 					select_domino = result.collider
 # move box
 	if event is InputEventMouseMotion and dragging2:
@@ -106,7 +106,9 @@ func _input(event):
 		instance.position.y = 0
 		instance.rotation = select_domino.rotation
 		#instance.set_script(predomino_script)
+		instance.add_to_group("dominos")
 		$'../.'.add_child(instance)
+		
 # rotate domino
 	if event.is_action_pressed("d_rotate_L") and dragging:
 		donimo_rotation_direction = 1
